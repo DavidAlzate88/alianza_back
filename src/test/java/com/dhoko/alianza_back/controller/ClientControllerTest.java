@@ -37,8 +37,8 @@ public class ClientControllerTest {
     @Test
     public void testListClients() throws Exception {
         List<Client> clients = Arrays.asList(
-                new Client("jgutierrez", "Juliana Gutierrez", "jgutierrez@gmail.com", "3219876543", "20/05/2019"),
-                new Client("mmartinez", "Manuel Martinez", "mmartinez@gmail.com", "3219876543", "20/05/2019")
+                new Client("jgutierrez", "Juliana Gutierrez", "jgutierrez@gmail.com", "20/05/2019", "20/05/2019"),
+                new Client("mmartinez", "Manuel Martinez", "mmartinez@gmail.com", "20/05/2019", "20/05/2019")
         );
         when(clientRepository.findAll()).thenReturn(clients);
 
@@ -69,7 +69,7 @@ public class ClientControllerTest {
 
         mockMvc.perform(post("/api/clients")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content("{\"key\":\"newclient\",\"id\":\"New Client\",\"email\":\"newclient@gmail.com\",\"startDate\":\"1234567890\",\"endDate\":\"01/01/2024\"}")
+                        .content("{\"key\":\"newclient\",\"id\":\"New Client\",\"email\":\"newclient@gmail.com\",\"startDate\":\"20/05/2019\",\"endDate\":\"01/01/2024\"}")
                 )
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
